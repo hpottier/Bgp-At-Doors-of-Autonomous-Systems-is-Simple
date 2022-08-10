@@ -1,0 +1,7 @@
+FROM frrouting/frr:v8.3.0
+
+COPY ./daemons /etc/frr/daemons
+
+ENTRYPOINT ["/sbin/tini", "--"]
+
+CMD ["/usr/lib/frr/docker-start"]
