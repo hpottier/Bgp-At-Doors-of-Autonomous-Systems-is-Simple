@@ -61,7 +61,7 @@ pathd_options="  -A 127.0.0.1"
 
 # configuration profile
 #
-frr_profile="traditional"
+#frr_profile="traditional"
 #frr_profile="datacenter"
 
 #
