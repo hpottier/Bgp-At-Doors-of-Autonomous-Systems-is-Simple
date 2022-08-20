@@ -1,18 +1,6 @@
 # Static configuration of client network interface
 
 Click on play to launch everything. Then double click on each hosts to get a terminal.
-Our interface is supposed to be call eth1 according to the subject, so we are going rename our interface eth0 to eth1
-
-On both hosts:
-```
-$ ip link set eth0 down # stop interface.
-$ ip link set eth0 name eth1 # change the mame of the interface.
-$ ip link set eth1 up # start interface back.
-```
-We can check our interface using:
-```
-ip a
-```
 We can now add our ip address:
 
 Client1:
@@ -23,6 +11,10 @@ Client2:
 ```
 $ ip addr add 30.1.1.2/24 dev eth1
 ``` 
+We can check our interface using:
+```
+ip a
+```
 
 Now that our clients ip are registered, we can set up our routers.
 Router1:
@@ -57,7 +49,7 @@ $ ip link set vxlan10 up
 $ ip addr add 30.1.1.3/24 dev vxlan10
 
 # Bridge configuration to link eth1 and vxlan10
-ip link add name br0 type bridge
+$ ip link add name br0 type bridge
 # create the bridge br0 
 $ ip link set br0 up
 # activate the bridge

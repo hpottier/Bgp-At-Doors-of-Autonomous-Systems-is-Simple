@@ -1,6 +1,6 @@
 # Configuring routers
 ## Router 2 and 4
-Bridge and VXLAN configuration
+Bridge and VXLAN configuration, we do not configure the VXLAN in router_hpottier-3 to show it's importance.
 ```
 brctl addbr br0
 ip link set up dev br0
@@ -10,12 +10,12 @@ brctl addif br0 vxlan10
 brctl addif br0 eth? #eth1 for route 2, eth0 for router 4
 ```
 
-Start vtysh (the frrouting configuraton tool) and get into config mode
+Start vtysh (the frrouting configuraton tool) and get into config mode.
 ```
 vtysh
-config t
+conf t
 ```
-Paste the corresponding configuration in each router
+Paste the corresponding configuration in each router.
 
 ## Router 2
 ```
@@ -94,8 +94,8 @@ router ospf
 !
 ```
 
-# Configuring RR
-Start vtysh and enter config mode again then paste this config
+# Configuring Reflector
+Start vtysh and enter config mode again then paste this config.
 ```
 hostname router_hpottier-1
 no ipv6 forwarding
@@ -130,16 +130,13 @@ line vty
 !
 ```
 
-# Configuring Hosts
+# Testing connection
 ## Host 1
 ```
 ip addr add 20.1.1.1/24 dev eth1
 ```
-## Host 2
-```
-ip addr add 20.1.1.2/24 dev eth0
-```
 ## Host 3
 ```
 ip addr add 20.1.1.3/24 dev eth0
+ping 20.1.1.1
 ```
