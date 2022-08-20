@@ -1,5 +1,5 @@
-#Configuring routers
-##Router 2 and 4
+# Configuring routers
+## Router 2 and 4
 Bridge and VXLAN configuration
 ```
 brctl addbr br0
@@ -17,7 +17,7 @@ config t
 ```
 Paste the corresponding configuration in each router
 
-##Router 2
+## Router 2
 ```
 hostname router_hpottier-2
 no ipv6 forwarding
@@ -43,7 +43,7 @@ router ospf
 !
 ```
 
-##Router 3
+## Router 3
 ```
 hostname router_hpottier-3
 no ipv6 forwarding
@@ -68,7 +68,7 @@ router ospf
 !
 ```
 
-##Router 4
+## Router 4
 ```
 hostname router_hpottier-4
 no ipv6 forwarding
@@ -94,7 +94,7 @@ router ospf
 !
 ```
 
-#Configuring RR
+# Configuring RR
 Start vtysh and enter config mode again then paste this config
 ```
 hostname router_hpottier-1
@@ -130,16 +130,16 @@ line vty
 !
 ```
 
-#Configuring Hosts
-##Host 1
+# Configuring Hosts
+## Host 1
 ```
 ip addr add 20.1.1.1/24 dev eth1
 ```
-##Host 2
+## Host 2
 ```
 ip addr add 20.1.1.2/24 dev eth0
 ```
-##Host 3
+## Host 3
 ```
 ip addr add 20.1.1.3/24 dev eth0
 ```
