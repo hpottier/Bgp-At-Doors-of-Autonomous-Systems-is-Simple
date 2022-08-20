@@ -28,12 +28,12 @@ Now that our clients ip are registered, we can set up our routers.
 Router1:
 ```
 $ ip addr add 10.1.1.1/24 dev eth0
-$ ip addr add <30.1.1.3/24> dev eth1
+$ ip addr add 30.1.1.3/24 dev eth1
 $ ip link add vxlan10 type vxlan id 10 remote 10.1.1.2 dstport 4789 dev eth0
 # Adding vxlan interface, going to the other router (10.1.1.2) through eth0
 $ ip link set vxlan10 up
 # activate vxlan 
-$ ip addr add <30.1.1.3/24> dev vxlan10
+$ ip addr add 30.1.1.3/24 dev vxlan10
 #give vxlan10 the address of eth1
 
 #Bridge configuration to link eth1 and vxlan10
@@ -49,12 +49,12 @@ $ ip link set eth1 master br0
 Router2:
 ```
 $ ip addr add 10.1.1.2/24 dev eth0
-$ ip addr add <30.1.1.3/24> dev eth1
+$ ip addr add 30.1.1.3/24 dev eth1
 $ ip link add vxlan10 type vxlan id 10 remote 10.1.1.1 dstport 4789 dev eth0
 # Adding vxlan interface, going to the other router (10.1.1.1) through eth0
 $ ip link set vxlan10 up
 # activate vxlan 
-$ ip addr add <30.1.1.3/24> dev vxlan10
+$ ip addr add 30.1.1.3/24 dev vxlan10
 
 # Bridge configuration to link eth1 and vxlan10
 ip link add name br0 type bridge
